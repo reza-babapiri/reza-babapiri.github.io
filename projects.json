@@ -24,7 +24,32 @@
       "Work involved technical document reviews and coordination with fabrication teams."
     ],
     "limitations": "Specific client drawings, confidential calculations, certified designs, numerical performance results and test data are not available for public release. Details are based on the engineer’s description of professional experience.",
-    "evidence": "Employment experience described by the author; no confidential employer CAD assets reproduced."
+    "evidence": "Employment experience described by the author; no confidential employer CAD assets reproduced.",
+    "engineering_question": "How can expansion joints and connected piping components be sized and selected for pressure, displacement, corrosion exposure and fabrication requirements?",
+    "role": "Mechanical Design Engineer at Enetaf Sane Co. I performed industrial design, technical review, load-related checks, materials work and drawing preparation. Employer and client drawings are intentionally not reproduced.",
+    "decisions": [
+      "Translated operating-service requirements into bellows, expansion-joint, flange and piping-component configurations.",
+      "Reviewed guide-rod arrangement, bolt quantity and load paths, and revised flange thickness according to applied mechanical loads.",
+      "Selected or revised materials and wall thickness where corrosion exposure or specified service conditions required changes.",
+      "Assessed structural response in SolidWorks Simulation and ABAQUS; coordinated design feedback with fabrication colleagues."
+    ],
+    "verification": "Engineering choices were checked with EJMA-based calculation software, applicable ASME / project requirements and structural calculations. No public numerical or certified design result is claimed.",
+    "reflection": "The transferable skill is converting ambiguous service conditions into manufacturable geometry and defensible materials / load decisions. The public case is descriptive because the original drawings belong to the employer.",
+    "metrics": [
+      "PROFESSIONAL WORK",
+      "SOLIDWORKS + AUTOCAD",
+      "EJMA / ASME"
+    ],
+    "gallery": [
+      {
+        "src": "industrial.png",
+        "caption": "Schematic presentation of expansion-joint design topics; illustration only, no company-owned drawings."
+      },
+      {
+        "src": "industrial_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "buck",
@@ -52,7 +77,48 @@
     ],
     "limitations": "No-load transient response is significantly underdamped in the supplied report. These are reported simulation results, not physical bench-test measurements.",
     "evidence": "6-page report; single- and dual-loop Simulink models; MATLAB controller scripts; supporting component datasheets.",
-    "download": "buck-source.zip"
+    "download": "buck-source.zip",
+    "engineering_question": "How can a 100 V-to-48 V converter maintain output regulation under load changes without excessive ripple or poorly damped transients?",
+    "role": "I prepared the converter sizing calculations, single-loop and cascaded PI-controller designs, Simulink implementations and comparative evaluation.",
+    "decisions": [
+      "Calculated nominal LC values from ripple design constraints, then iterated passive-component values using simulated load and step responses.",
+      "Implemented an inner inductor-current PI loop and an outer output-voltage PI loop; retained the single-loop model as a point of comparison.",
+      "Examined full-load and no-load Bode plots, controller phase margins, steady-state ripple and startup transient behavior.",
+      "Distinguished between outcomes that meet nominal specifications and the problematic lightly loaded response."
+    ],
+    "verification": "Simulated nominal operating point: 100 V input, 48 V output, 1 kW, 50 kHz; reported voltage ripple ~1.1%, current ripple ~9.6%, full-load output overshoot 1.69%. No-load transient overshoot reached ~75%.",
+    "reflection": "The no-load transient is a substantive limitation, not a success metric. Practical follow-up would address damping / light-load control and revalidate with switching and component nonidealities.",
+    "metrics": [
+      "100 V → 48 V",
+      "1 kW / 50 kHz",
+      "1.69% FULL-LOAD OVERSHOOT"
+    ],
+    "gallery": [
+      {
+        "src": "buck_p3_i1.png",
+        "caption": "Inductor / output-current trace and steady-state ripple measurement from the simulation."
+      },
+      {
+        "src": "buck_p3_i3.png",
+        "caption": "Voltage-related steady-state trace from the original project report."
+      },
+      {
+        "src": "buck_bode.png",
+        "caption": "Frequency-domain comparison across loading conditions; gain and phase response."
+      },
+      {
+        "src": "buck_p5_i0.png",
+        "caption": "Full-load versus no-load Bode response taken from the report."
+      },
+      {
+        "src": "buck_p6_i1.png",
+        "caption": "Voltage/current step-response evidence at full load from the submitted report."
+      },
+      {
+        "src": "buck_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "pendulum",
@@ -78,7 +144,39 @@
       "Identified control-effort versus transient-response trade-offs and local validity of the linear model."
     ],
     "limitations": "Academic simulations; the study does not demonstrate a physical stabilized pendulum.",
-    "evidence": "26-page CMS HW6 report and MATLAB implementation."
+    "evidence": "26-page CMS HW6 report and MATLAB implementation.",
+    "engineering_question": "How should a controller stabilize an inherently unstable cart-pendulum equilibrium while respecting finite actuation?",
+    "role": "I modelled and analysed the cart-pendulum dynamics, implemented controller comparisons, and evaluated tracking and saturation behavior in MATLAB/Simulink.",
+    "decisions": [
+      "Linearized the system about the upright equilibrium and examined controllability and unstable pole locations.",
+      "Compared pole placement with optimal LQR state feedback, then introduced integral action for reference tracking.",
+      "Investigated nonlinear simulation, bounded control input, saturation and anti-windup implications."
+    ],
+    "verification": "Controller-response plots and MATLAB/Simulink scripts show the comparative simulated dynamics and trade-offs. No physical cart-pendulum rig was tested.",
+    "reflection": "Linear-controller performance is local to the selected equilibrium; nonlinear behavior and force saturation limit generalization.",
+    "metrics": [
+      "LQR / LQI",
+      "STATE-SPACE",
+      "SATURATION ANALYSIS"
+    ],
+    "gallery": [
+      {
+        "src": "pend_p9_i0.png",
+        "caption": "Controller and response comparison from the cart-pendulum analysis."
+      },
+      {
+        "src": "pend_p10_i0.png",
+        "caption": "Model response related to state feedback and transient behavior."
+      },
+      {
+        "src": "pend_p18_i0.png",
+        "caption": "Additional stability / tracking plot from the course report."
+      },
+      {
+        "src": "pendulum_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "cruise",
@@ -103,7 +201,39 @@
       "Report comparison shows ~0.02 m/s peak overshoot with anti-windup versus ~0.885 m/s without it for one disturbance case."
     ],
     "limitations": "Results are specific to simulated parameters and disturbance setup.",
-    "evidence": "37-page CMS HW4 part 1 report; MATLAB file, Simulink models and output figures."
+    "evidence": "37-page CMS HW4 part 1 report; MATLAB file, Simulink models and output figures.",
+    "engineering_question": "How can a longitudinal vehicle-speed controller handle road grades and saturated throttle commands without excessive windup?",
+    "role": "I wrote the modelling and control simulations, studied disturbances and anti-windup and analysed sensitivity/robustness in coursework.",
+    "decisions": [
+      "Built a simplified longitudinal vehicle model and tuned PI speed regulation.",
+      "Introduced gradient disturbances and actuator saturation to challenge the nominal design.",
+      "Compared the transient under anti-windup and unmodified integral action; inspected sensitivity transfer functions."
+    ],
+    "verification": "One reported disturbance scenario shows a peak speed overshoot near 0.02 m/s with anti-windup versus ~0.885 m/s without anti-windup. These figures are specific to that setup.",
+    "reflection": "The study illustrates why actuator constraints must be included in controller assessment; it does not represent physical road testing.",
+    "metrics": [
+      "PI FEEDBACK",
+      "GRADE DISTURBANCE",
+      "ANTI-WINDUP"
+    ],
+    "gallery": [
+      {
+        "src": "cruise.png",
+        "caption": "Course report vehicle-speed control response under defined simulation conditions."
+      },
+      {
+        "src": "cruise_p13_i0.png",
+        "caption": "PI cruise-control transient and disturbance-response comparison."
+      },
+      {
+        "src": "cruise_p16_i0.png",
+        "caption": "Additional robustness and anti-windup results from coursework."
+      },
+      {
+        "src": "cruise_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "kalman",
@@ -127,7 +257,35 @@
       "The supplied report states all ten simulated cases met its 0.25 m error criterion."
     ],
     "limitations": "Simulation-only academic task; not a real camera-based ball tracking system.",
-    "evidence": "24-page CMS HW8 report with MATLAB code and simulation figures."
+    "evidence": "24-page CMS HW8 report with MATLAB code and simulation figures.",
+    "engineering_question": "How can a noisy moving-target trajectory be estimated using a simple state-space motion model?",
+    "role": "I implemented the simulated penalty-kick tracking model, Kalman estimator, numerical experiments and plotted evaluation.",
+    "decisions": [
+      "Selected a constant-velocity state representation with explicit process and observation uncertainty.",
+      "Propagated state predictions and corrected them with noisy measured positions.",
+      "Compared estimated and reference trajectories across ten simulated initial-condition variants."
+    ],
+    "verification": "The coursework report states that all ten simulated trials satisfied a 0.25 m endpoint tracking-error requirement.",
+    "reflection": "This is a stochastic-estimation simulation, not camera tracking or field-tested real-time sensing. Model and noise assumptions determine filter quality.",
+    "metrics": [
+      "KALMAN FILTER",
+      "10 SIMULATED TRIALS",
+      "0.25 M THRESHOLD"
+    ],
+    "gallery": [
+      {
+        "src": "kalman_p11_i0.png",
+        "caption": "Kalman-filter estimate alongside simulated noisy target trajectory observations."
+      },
+      {
+        "src": "kalman_p12_i0.png",
+        "caption": "Estimation tracking comparison from the simulated penalty kick."
+      },
+      {
+        "src": "kalman_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "robot",
@@ -135,14 +293,14 @@
     "title": "Autonomous Obstacle-Avoiding Robot",
     "eyebrow": "EMBEDDED HARDWARE · MOBILE ROBOTICS",
     "subtitle": "Arduino Uno, ultrasonic sensing, servo scanning and DC motor driving",
-    "image": "robot.png",
+    "image": "robot_prototype.jpg",
     "tags": [
       "Arduino",
       "HC-SR04",
       "Embedded C++",
       "L298N"
     ],
-    "overview": "Documented an obstacle-avoiding mobile robot assembled for an embedded systems course by a two-person team. A servo-mounted ultrasonic sensor scans the front and sides and an Arduino Uno drives motors through an L298N module.",
+    "overview": "Built and programmed an Arduino-based obstacle-avoiding tracked mobile robot for an embedded-systems university assignment. The system integrates ultrasonic sensing, servo scanning, DC motor driving and threshold-based motion logic.",
     "approach": [
       "Integrated Arduino Uno, HC-SR04 ultrasonic sensor, servo motor and dual DC geared motors.",
       "Implemented repeated distance sampling with out-of-range filtering and averaging.",
@@ -153,7 +311,36 @@
       "Full Arduino source and a wiring diagram are present in the supplied group report."
     ],
     "limitations": "The report describes choosing the clearer side, but the supplied final loop alternates turning with turnCounter. This inconsistency is disclosed rather than presenting unverified path planning.",
-    "evidence": "15-page group report; wiring diagram, Arduino C++ source, component list."
+    "evidence": "Physical robot photograph supplied by the author; 15-page course report containing wiring and Arduino code. Original course report lists two participants.",
+    "engineering_question": "Can a compact embedded controller detect obstacles and command a mobile platform using low-cost sensing and actuators?",
+    "role": "I built, wired, programmed and tested the physical prototype, which was submitted as a two-person university group assignment. The photograph shows our actual hardware.",
+    "decisions": [
+      "Integrated Arduino Uno, HC-SR04 ultrasonic sensing, an actuated scanning servo, L298N motor control and DC geared motors on a tracked platform.",
+      "Implemented ten-reading distance averaging with range filtering, then used a front-distance threshold to activate stop, reverse and turn functions.",
+      "Structured motor actions into reusable embedded functions and monitored sensed distances through serial output.",
+      "Used simple timed motion rather than localization, mapping or route planning, making behavior easier to reproduce and debug."
+    ],
+    "verification": "The report supplies pin-level wiring and the full Arduino code; the uploaded photograph independently documents the assembled physical prototype. The implemented loop uses a 40 cm threshold.",
+    "reflection": "The written description says the robot chooses the clearer side, but the final code alternates turn direction with a counter. The website therefore describes the code behavior rather than claiming a validated best-path planner.",
+    "metrics": [
+      "ARDUINO UNO",
+      "HC-SR04 + SERVO",
+      "40 CM THRESHOLD"
+    ],
+    "gallery": [
+      {
+        "src": "robot_prototype.jpg",
+        "caption": "Actual assembled robot photographed by the author: tracked chassis, ultrasonic rangefinder, servo and controller hardware."
+      },
+      {
+        "src": "robot_p8_i0.png",
+        "caption": "Wiring plan from the submitted project report: Arduino Uno, servo, HC-SR04 and motor-driver connections."
+      },
+      {
+        "src": "robot_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "acc",
@@ -178,7 +365,39 @@
       "The supplied report compares nominal simplicity of PID control with advantages of observer-based estimation."
     ],
     "limitations": "Controller comparison is simulation-based; it is not a road-validated ADAS system.",
-    "evidence": "24-page CMS HW4 part 2 report, MATLAB code and comparison plots."
+    "evidence": "24-page CMS HW4 part 2 report, MATLAB code and comparison plots.",
+    "engineering_question": "How should following-distance feedback be organized when lead-vehicle acceleration and disturbances are not directly measured?",
+    "role": "I developed and compared PID-based and observer-based adaptive cruise control approaches using analytical models and MATLAB simulation.",
+    "decisions": [
+      "Formulated the longitudinal distance-error dynamics with leader behaviour and disturbances.",
+      "Designed a conventional PID controller as an accessible reference strategy.",
+      "Evaluated a state-observer-based control formulation and compared tracking and robustness behavior."
+    ],
+    "verification": "Coursework provides time-domain response figures for the controller alternatives and error trajectories; outputs are simulation-only.",
+    "reflection": "The work is a model-based control comparison and does not establish ADAS safety validation or real-vehicle operation.",
+    "metrics": [
+      "ACC STUDY",
+      "PID VS OBSERVER",
+      "MATLAB"
+    ],
+    "gallery": [
+      {
+        "src": "acc_p8_i0.png",
+        "caption": "Adaptive cruise-control dynamic response and design comparison."
+      },
+      {
+        "src": "acc_p10_i0.png",
+        "caption": "Comparison plot from observer-based and PID control study."
+      },
+      {
+        "src": "acc_p11_i0.png",
+        "caption": "Distance-error tracking in the closed-loop controller simulation."
+      },
+      {
+        "src": "acc_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "bmw",
@@ -203,7 +422,35 @@
       "The report documents a damping-ratio improvement in a selected closed-loop case (approximately 0.088 to 0.628)."
     ],
     "limitations": "Based on an academic vehicle model, not measurement of a production BMW vehicle.",
-    "evidence": "38-page CMS HW5 part 1 report and supporting MATLAB code."
+    "evidence": "38-page CMS HW5 part 1 report and supporting MATLAB code.",
+    "engineering_question": "How do vehicle forward speed and model parameters change lateral stability and steering-response behavior?",
+    "role": "I analysed the specified BMW 730 bicycle-model problem, assessed dynamic properties and implemented feedback studies in MATLAB.",
+    "decisions": [
+      "Computed speed-dependent poles/eigenvalues and transfer-function responses for the academic lateral vehicle model.",
+      "Studied controllability, observability and understeer/oversteer tendencies.",
+      "Analysed the influence of feedback design on damping and transient response."
+    ],
+    "verification": "The report shows a selected damping-ratio change from roughly 0.088 to 0.628 under its model and controller assumptions.",
+    "reflection": "BMW appears as the reference vehicle in an academic model; this is not BMW production-system engineering or measurements.",
+    "metrics": [
+      "VEHICLE DYNAMICS",
+      "STATE-SPACE",
+      "DAMPING STUDY"
+    ],
+    "gallery": [
+      {
+        "src": "bmw_p9_i0.png",
+        "caption": "BMW steering-model response analysis derived from the academic model."
+      },
+      {
+        "src": "bmw_p13_i0.png",
+        "caption": "Frequency-domain analysis of lateral / steering dynamics."
+      },
+      {
+        "src": "bmw_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "steering",
@@ -228,7 +475,35 @@
       "The report analyses state-estimation quality and trade-offs between controller complexity and measurement noise sensitivity."
     ],
     "limitations": "Filter performance depends on assumed process and measurement covariance.",
-    "evidence": "38-page CMS HW5 part 2 report and MATLAB analysis script."
+    "evidence": "38-page CMS HW5 part 2 report and MATLAB analysis script.",
+    "engineering_question": "Can active steering regulation and state estimation remain useful when lateral vehicle dynamics are uncertain or noisy?",
+    "role": "I developed steering-controller and observer comparisons, including PI feedback, Luenberger observation and covariance-weighted estimation.",
+    "decisions": [
+      "Built a closed-loop yaw-rate/steering formulation from the selected vehicle model.",
+      "Derived PI-controller parameters with characteristic-equation objectives.",
+      "Compared deterministic observer behavior with Wiener/Kalman-like covariance-weighted estimation assumptions."
+    ],
+    "verification": "The supplied report includes observer/controller diagrams and sensitivity plots; no numerical road-test claim is made.",
+    "reflection": "Performance depends strongly on assumed noise statistics, model structure and vehicle operating speed.",
+    "metrics": [
+      "PI / OBSERVER",
+      "WIENER FILTER",
+      "SENSITIVITY"
+    ],
+    "gallery": [
+      {
+        "src": "steering_p16_i0.png",
+        "caption": "Active-steering controller or observer architecture from the analysis."
+      },
+      {
+        "src": "steering_p18_i0.png",
+        "caption": "Sensitivity and closed-loop behavior in the course simulations."
+      },
+      {
+        "src": "steering_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "bicycle",
@@ -253,7 +528,35 @@
       "The report highlights sensitivity of stabilization to model order, speed and sensing assumptions."
     ],
     "limitations": "Academic model study; no physical autonomous bicycle test is documented.",
-    "evidence": "26-page CMS HW7 report with MATLAB analysis."
+    "evidence": "26-page CMS HW7 report with MATLAB analysis.",
+    "engineering_question": "Why does balancing performance change with forward speed, and what type of feedback can regulate bicycle roll?",
+    "role": "I modelled bicycle roll/steering dynamics, tested stability assumptions and studied candidate feedback controllers in MATLAB.",
+    "decisions": [
+      "Used simplified roll equations and a Whipple-type bicycle model to study a balance-control problem.",
+      "Inspected poles, zeros and steering-to-roll dynamics at different speeds.",
+      "Compared the behaviour of elementary proportional control with more structured feedback."
+    ],
+    "verification": "The report documents transfer functions, stability plots and controller comparisons under the adopted academic model assumptions.",
+    "reflection": "The simplified models are sensitive to speed and sensor/actuation assumptions. No physical robotic bicycle prototype was built.",
+    "metrics": [
+      "BICYCLE DYNAMICS",
+      "TRANSFER FUNCTIONS",
+      "FEEDBACK CONTROL"
+    ],
+    "gallery": [
+      {
+        "src": "bicycle_p11_i0.png",
+        "caption": "Bicycle roll or steering stability plot from the model analysis."
+      },
+      {
+        "src": "bicycle_p17_i0.png",
+        "caption": "Feedback system for bicycle-dynamics stabilization."
+      },
+      {
+        "src": "bicycle_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "evhev",
@@ -279,7 +582,35 @@
       "Separate EV and HEV Simulink models and scenario plots are included."
     ],
     "limitations": "Saved scenario results have not been independently rerun in the current environment; do not interpret equivalent-fuel quantities as laboratory vehicle measurements.",
-    "evidence": "Project RAR contains Python scripts, MATLAB bridges, .slx models, route files, result CSVs and figures."
+    "evidence": "Project RAR contains Python scripts, MATLAB bridges, .slx models, route files, result CSVs and figures.",
+    "engineering_question": "How can urban traffic demand be connected to electric and hybrid vehicle model simulations to compare speed tracking and energy use?",
+    "role": "I prepared the SUMO urban-route simulation, Python-to-MATLAB/Simulink interface and archived EV/HEV scenario outputs.",
+    "decisions": [
+      "Defined different urban traffic intensities and exported driving profiles from SUMO scenarios.",
+      "Linked speed profiles to EV and HEV dynamic models through Python and MATLAB/Simulink scripts.",
+      "Compared reference versus simulated speed, battery charge trends and model energy outputs over traffic cases."
+    ],
+    "verification": "The supplied archive contains SUMO inputs, Python scripts, Simulink model files, scenario CSV tables and plotted results. Archived outputs were inspected but not rerun.",
+    "reflection": "Reported energy/fuel-equivalent figures are model outputs and should not be interpreted as real-vehicle fuel measurements or independently validated emissions.",
+    "metrics": [
+      "SUMO + PYTHON",
+      "EV / HEV MODELS",
+      "3 TRAFFIC LEVELS"
+    ],
+    "gallery": [
+      {
+        "src": "evhev.png",
+        "caption": "EV/HEV simulation speed tracking generated from archived results."
+      },
+      {
+        "src": "hev_soc.png",
+        "caption": "HEV battery state-of-charge profile from the supplied simulation files."
+      },
+      {
+        "src": "evhev_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "fusion",
@@ -287,7 +618,7 @@
     "title": "Fusion 360 | CAD/CAM CNC Workflow",
     "eyebrow": "DIGITAL MANUFACTURING · CAD/CAM",
     "subtitle": "Aluminium 6061 milling plan with machining simulation and NC output",
-    "image": "cam.png",
+    "image": "fusion_cover.jpg",
     "tags": [
       "Fusion 360",
       "CAM",
@@ -304,29 +635,110 @@
       "The course summary confirms simulated stock removal and NC export; the Fusion design archive (.f3d) is available."
     ],
     "limitations": "A CAM simulation and generic NC post do not establish physical machining quality or actual machine validation.",
-    "evidence": "Fusion .f3d file plus one-page process report."
+    "evidence": "Fusion .f3d file plus one-page process report.",
+    "engineering_question": "How can a parametrically modelled aluminium part be translated into a verifiable two-dimensional CNC machining workflow?",
+    "role": "Independently prepared the part geometry, material selection, machining setup, toolpath sequence, simulation and NC output for the course challenge.",
+    "decisions": [
+      "Modelled the feature geometry in Fusion 360; assigned Aluminium 6061 as the workpiece material.",
+      "Defined setup direction, work coordinate origin and stock definition to align programming with the intended fixture orientation.",
+      "Sequenced Face, 2D Adaptive, Pocket, Contour and Drill operations rather than relying on one generic toolpath.",
+      "Simulated material removal and used a generic 2D post-processor to export an NC file."
+    ],
+    "verification": "The supplied Fusion screenshots show the model, material assignment, setup parameters and toolpath simulation. The course report records complete simulated stock removal and exported NC output.",
+    "reflection": "Digital verification demonstrates process planning, not physical machining accuracy. No measured surface finish, actual cycle time or produced hardware is claimed.",
+    "metrics": [
+      "ALUMINIUM 6061",
+      "2D MILLING / DRILLING",
+      "NC OUTPUT"
+    ],
+    "gallery": [
+      {
+        "src": "fusion_cad.jpg",
+        "caption": "Original Fusion 360 CAD geometry showing the part, pockets and machined features."
+      },
+      {
+        "src": "fusion_material.jpg",
+        "caption": "Fusion 360 physical material assigned to the model: Aluminium 6061."
+      },
+      {
+        "src": "fusion_setup.jpg",
+        "caption": "Manufacturing workspace showing work coordinate system and stock origin setup."
+      },
+      {
+        "src": "fusion_toolpath.jpg",
+        "caption": "CAM simulation of 2D milling and drilling paths, including leads and linking moves."
+      },
+      {
+        "src": "fusion_model.png",
+        "caption": "Native thumbnail extracted from the supplied Fusion 360 .f3d archive."
+      },
+      {
+        "src": "fusion_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   },
   {
     "id": "vision",
     "cat": "vision",
-    "title": "MATLAB | Image Contrast Enhancement",
-    "eyebrow": "IMAGE PROCESSING · MATLAB",
-    "subtitle": "Early computer vision / image-preprocessing exercise",
-    "image": "vision.png",
+    "title": "Moss Detection | Classical Vision & DeepLabv3+",
+    "eyebrow": "COMPUTER VISION · SEMANTIC SEGMENTATION",
+    "subtitle": "Hybrid active contour compared with DeepLabv3+ ResNet-50",
+    "image": "moss_p4_i0.png",
     "tags": [
       "MATLAB",
-      "Image processing",
-      "Contrast"
+      "DeepLabv3+",
+      "ResNet-50",
+      "Segmentation"
     ],
-    "overview": "The CMS archive also contains MATLAB scripts and data assets related to a contrast-enhancement exercise. This is currently documented only as an early image-processing activity while the user’s separate AI-based moss-detection project awaits its code and evaluation figures.",
+    "overview": "Designed and evaluated wall-surface moss segmentation using a classical image-processing pipeline and a DeepLabv3+ (ResNet-50) semantic segmentation system. Submitted as a two-person academic presentation; the implementation and evaluation were carried out by the portfolio author.",
     "approach": [
-      "Review supplied contrast-enhancement MATLAB scripts and supporting data.",
-      "Prepare original input/output comparisons and document the algorithm after validation."
+      "Implemented/reported a direct MATLAB image-processing sequence: green-channel enhancement, CLAHE, median filtering, Canny edges, morphological operations and active-contour refinement.",
+      "Evaluated a DeepLabv3+ semantic-segmentation workflow with ResNet-50, labeled masks, data augmentation, weighted classification and post-processing.",
+      "Compared representative predictions and train/test F-measure distributions; documented false-positive and under-segmentation cases."
     ],
     "results": [
-      "Code and MATLAB data assets are present; there is not yet a verified performance result suitable for the public portfolio."
+      "Presentation reports direct-method averages: CR (precision) 0.833, CM (recall) 0.902 and F-measure 0.831.",
+      "Deep-learning predictions are illustrated with best/worst cases and train/test box plots; a single verified numerical aggregate for this method was not available.",
+      "Project includes MATLAB source snippets and a 14-slide two-author project presentation."
     ],
-    "limitations": "Not presented as a trained AI classifier or validated moss-detection model.",
-    "evidence": "MATLAB contrast-enhancement scripts and dataset fragment in the CMS archive."
+    "limitations": "Academic group project. Classical method may over-segment textured backgrounds; deep learning can under-segment low-contrast moss. The supplied slide deck cites 25 training epochs, whereas shared code variants specify different settings; an independently reproduced training run has not been verified.",
+    "evidence": "July 2025 two-person course presentation, MATLAB DeepLabv3+ scripts and segmentation-evaluation material. Author states responsibility for implementation.",
+    "engineering_question": "Which method segments moss on textured walls more reliably: classical image processing or a learned pixel-level segmentation network?",
+    "role": "I developed the MATLAB processing and segmentation workflows, compared predictions and documented results for a project submitted with a second named course participant.",
+    "decisions": [
+      "Implemented a classical pipeline involving green-channel enhancement, CLAHE, median filtering, Canny detection, morphology and Chan–Vese active contour.",
+      "Implemented and evaluated DeepLabv3+ with a ResNet-50 backbone, data augmentation, labeled segmentation masks and class weighting.",
+      "Reviewed best/worst image predictions and precision, recall, F-measure and area-ratio distributions."
+    ],
+    "verification": "The presentation reports for the classical pipeline precision (CR) 0.833, recall (CM) 0.902 and F-measure 0.831. Deep-learning train/test distributions are plotted but no independently reproduced global benchmark is available.",
+    "reflection": "Classical segmentation over-detects textured regions; deep learning can under-detect difficult vegetation. MATLAB code fragments and slides use differing training-epoch settings, so runtime reproducibility needs a consolidated script and dataset documentation.",
+    "metrics": [
+      "DEEPLABv3+",
+      "RESNET-50",
+      "0.831 CLASSICAL F-MEASURE"
+    ],
+    "gallery": [
+      {
+        "src": "moss_p4_i0.png",
+        "caption": "Classical segmentation: good and difficult examples for edge detection and active contours."
+      },
+      {
+        "src": "moss_p9_i0.png",
+        "caption": "DeepLabv3+ qualitative best and worst test cases; predicted segmentation masks."
+      },
+      {
+        "src": "moss_p10_i0.png",
+        "caption": "Training versus test F-measure distributions from the presentation."
+      },
+      {
+        "src": "moss_p11_i0.png",
+        "caption": "Comparison between ground-truth and predicted vegetation areas."
+      },
+      {
+        "src": "vision_workflow.svg",
+        "caption": "Illustrative engineering workflow based on the methods described in the documentation."
+      }
+    ]
   }
 ]
