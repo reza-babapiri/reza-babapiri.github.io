@@ -1,0 +1,332 @@
+[
+  {
+    "id": "industrial",
+    "cat": "mechanical",
+    "title": "Industrial Expansion Joints | Design Practice",
+    "eyebrow": "PROFESSIONAL EXPERIENCE · INDUSTRIAL EQUIPMENT",
+    "subtitle": "Bellows, flanges, piping components and mechanical design verification",
+    "image": "industrial.png",
+    "tags": [
+      "SolidWorks",
+      "AutoCAD",
+      "EJMA / ASME",
+      "FEA"
+    ],
+    "overview": "During industrial mechanical design work at Enetaf Sane Co. (Jan 2022–Jul 2023), worked on expansion joints, bellows, flanges and piping-related equipment. The focus was translating service requirements into manufacturable CAD designs, engineering calculations, design checks and drawing revisions. This is an anonymised professional experience case study, not a reconstruction of a client project.",
+    "approach": [
+      "Produced preliminary AutoCAD layouts and SolidWorks part, assembly and manufacturing drawings.",
+      "Used EJMA-based engineering calculations and applicable ASME and project standards in bellows, material and piping-component design checks.",
+      "Reviewed guide-rod arrangements, bolted connections and flange thickness under operating-pressure and load considerations; used SolidWorks Simulation and ABAQUS for structural assessment.",
+      "Proposed material and thickness revisions to address corrosion concerns and supported selection of pipe and valve specifications for service conditions."
+    ],
+    "results": [
+      "Examples of engineering decisions include material/thickness changes for corrosion mitigation and guide-rod quantity or flange thickness adjustments based on loads.",
+      "Work involved technical document reviews and coordination with fabrication teams."
+    ],
+    "limitations": "Specific client drawings, confidential calculations, certified designs, numerical performance results and test data are not available for public release. Details are based on the engineer’s description of professional experience.",
+    "evidence": "Employment experience described by the author; no confidential employer CAD assets reproduced."
+  },
+  {
+    "id": "buck",
+    "cat": "control",
+    "title": "Buck Converter | Cascaded PI Control",
+    "eyebrow": "POWER ELECTRONICS · SIMULINK",
+    "subtitle": "100 V to 48 V, 1 kW converter design with current and voltage feedback loops",
+    "image": "buck.png",
+    "tags": [
+      "MATLAB",
+      "Simulink",
+      "PI control",
+      "Bode analysis"
+    ],
+    "overview": "Designed and documented a closed-loop DC–DC buck converter using an inner current loop and outer voltage loop, with an additional single-loop model for comparison. Component sizing and controller tuning were studied through steady-state, step-response and frequency-domain simulations.",
+    "approach": [
+      "Sized the inductor and output capacitor around ripple requirements; compared single- and cascaded-loop structures.",
+      "Used MATLAB scripts and Simulink models to inspect gain crossover, phase margin, transient response and load variations.",
+      "Refined LC component values based on observed simulation behavior rather than relying on nominal sizing alone."
+    ],
+    "results": [
+      "Nominal: 100 V input, 48 V output, 1 kW, 50 kHz switching.",
+      "Reported steady-state: 1.1% output-voltage ripple and 9.6% current ripple.",
+      "Full-load voltage step overshoot: 1.69%; no-load case: approximately 75% overshoot (important limitation)."
+    ],
+    "limitations": "No-load transient response is significantly underdamped in the supplied report. These are reported simulation results, not physical bench-test measurements.",
+    "evidence": "6-page report; single- and dual-loop Simulink models; MATLAB controller scripts; supporting component datasheets.",
+    "download": "buck-source.zip"
+  },
+  {
+    "id": "pendulum",
+    "cat": "control",
+    "title": "Inverted Pendulum | LQR & LQI",
+    "eyebrow": "STATE-SPACE CONTROL · NONLINEAR SIMULATION",
+    "subtitle": "Cart–pendulum stabilization, tracking, saturation and anti-windup",
+    "image": "pendulum.png",
+    "tags": [
+      "LQR",
+      "LQI",
+      "MATLAB",
+      "Simulink"
+    ],
+    "overview": "Analysed the upright equilibrium of a cart–pendulum system and compared state-feedback pole placement with linear-quadratic regulator designs. Extended the study to integral tracking, actuator force constraints and nonlinear response.",
+    "approach": [
+      "Derived and tested a state-space model; assessed reachability and open-loop instability.",
+      "Compared Ackermann pole placement against LQR based on transients and control effort.",
+      "Examined integral-action reference tracking, nonlinear attraction limits, saturation and anti-windup."
+    ],
+    "results": [
+      "Demonstrated controller comparisons in report plots and MATLAB scripts.",
+      "Identified control-effort versus transient-response trade-offs and local validity of the linear model."
+    ],
+    "limitations": "Academic simulations; the study does not demonstrate a physical stabilized pendulum.",
+    "evidence": "26-page CMS HW6 report and MATLAB implementation."
+  },
+  {
+    "id": "cruise",
+    "cat": "control",
+    "title": "Vehicle Cruise Control | PI & Anti-Windup",
+    "eyebrow": "CONTROL ENGINEERING · ROBUSTNESS",
+    "subtitle": "Speed tracking under hills, actuator saturation and parameter changes",
+    "image": "cruise.png",
+    "tags": [
+      "PI control",
+      "Anti-windup",
+      "Robustness",
+      "MATLAB"
+    ],
+    "overview": "Modelled a vehicle longitudinal plant, designed PI speed control, and explored road-grade disturbances, actuation limits, anti-windup and sensitivity functions.",
+    "approach": [
+      "Implemented the nonlinear vehicle model and PI control simulations.",
+      "Introduced a road-grade disturbance and compared saturated controller behavior with and without anti-windup.",
+      "Assessed parameter sensitivity and gang-of-four frequency-domain plots."
+    ],
+    "results": [
+      "Report comparison shows ~0.02 m/s peak overshoot with anti-windup versus ~0.885 m/s without it for one disturbance case."
+    ],
+    "limitations": "Results are specific to simulated parameters and disturbance setup.",
+    "evidence": "37-page CMS HW4 part 1 report; MATLAB file, Simulink models and output figures."
+  },
+  {
+    "id": "kalman",
+    "cat": "control",
+    "title": "Kalman Filtering | Penalty-Kick Tracking",
+    "eyebrow": "ESTIMATION · STOCHASTIC SYSTEMS",
+    "subtitle": "Tracking a moving target from noisy 2-D measurements",
+    "image": "kalman.png",
+    "tags": [
+      "Kalman filter",
+      "State estimation",
+      "MATLAB"
+    ],
+    "overview": "Built a constant-velocity state-estimation model for a football penalty kick, then studied how a Kalman filter reduces position error under noisy measurements and uncertain initial velocities.",
+    "approach": [
+      "Formulated a 2-D motion state and noisy measurement model.",
+      "Simulated ten variations of the kick initial state and velocity.",
+      "Evaluated estimation error at the target-reaching instant."
+    ],
+    "results": [
+      "The supplied report states all ten simulated cases met its 0.25 m error criterion."
+    ],
+    "limitations": "Simulation-only academic task; not a real camera-based ball tracking system.",
+    "evidence": "24-page CMS HW8 report with MATLAB code and simulation figures."
+  },
+  {
+    "id": "robot",
+    "cat": "embedded",
+    "title": "Autonomous Obstacle-Avoiding Robot",
+    "eyebrow": "EMBEDDED HARDWARE · MOBILE ROBOTICS",
+    "subtitle": "Arduino Uno, ultrasonic sensing, servo scanning and DC motor driving",
+    "image": "robot.png",
+    "tags": [
+      "Arduino",
+      "HC-SR04",
+      "Embedded C++",
+      "L298N"
+    ],
+    "overview": "Documented an obstacle-avoiding mobile robot assembled for an embedded systems course by a two-person team. A servo-mounted ultrasonic sensor scans the front and sides and an Arduino Uno drives motors through an L298N module.",
+    "approach": [
+      "Integrated Arduino Uno, HC-SR04 ultrasonic sensor, servo motor and dual DC geared motors.",
+      "Implemented repeated distance sampling with out-of-range filtering and averaging.",
+      "Used motor-control functions and threshold-based obstacle detection to stop, reverse and turn."
+    ],
+    "results": [
+      "Report documents a 40 cm front obstacle threshold and timing-based drive commands.",
+      "Full Arduino source and a wiring diagram are present in the supplied group report."
+    ],
+    "limitations": "The report describes choosing the clearer side, but the supplied final loop alternates turning with turnCounter. This inconsistency is disclosed rather than presenting unverified path planning.",
+    "evidence": "15-page group report; wiring diagram, Arduino C++ source, component list."
+  },
+  {
+    "id": "acc",
+    "cat": "automotive",
+    "title": "Adaptive Cruise Control | PID vs Observer",
+    "eyebrow": "ADVANCED DRIVER ASSISTANCE · CONTROL",
+    "subtitle": "Distance-error regulation and disturbance estimation",
+    "image": "acc.png",
+    "tags": [
+      "ACC",
+      "PID",
+      "State observer",
+      "MATLAB"
+    ],
+    "overview": "Studied adaptive cruise control as a following-distance regulation problem. Implemented and compared a PID approach against an observer-based feedback strategy to estimate unmeasured dynamics and disturbances.",
+    "approach": [
+      "Formulated distance-error dynamics with leader acceleration and resistive disturbance terms.",
+      "Designed PID control and a state observer with performance targets from the coursework.",
+      "Compared time-domain responses and sensitivity measures."
+    ],
+    "results": [
+      "The supplied report compares nominal simplicity of PID control with advantages of observer-based estimation."
+    ],
+    "limitations": "Controller comparison is simulation-based; it is not a road-validated ADAS system.",
+    "evidence": "24-page CMS HW4 part 2 report, MATLAB code and comparison plots."
+  },
+  {
+    "id": "bmw",
+    "cat": "automotive",
+    "title": "BMW 730 | Steering Dynamics",
+    "eyebrow": "VEHICLE DYNAMICS · STATE SPACE",
+    "subtitle": "Speed-dependent stability, damping and steering response",
+    "image": "bmw.png",
+    "tags": [
+      "Vehicle dynamics",
+      "State-space",
+      "MATLAB",
+      "PI"
+    ],
+    "overview": "Analysed a BMW 730 bicycle-model representation to understand speed-dependent lateral dynamics, controllability, observability, damping and steering response.",
+    "approach": [
+      "Evaluated eigenvalues, transfer functions and speed-dependent dynamic properties.",
+      "Compared understeering / oversteering conditions using zero-frequency gains.",
+      "Designed feedback for selected lateral or yaw-rate response objectives."
+    ],
+    "results": [
+      "The report documents a damping-ratio improvement in a selected closed-loop case (approximately 0.088 to 0.628)."
+    ],
+    "limitations": "Based on an academic vehicle model, not measurement of a production BMW vehicle.",
+    "evidence": "38-page CMS HW5 part 1 report and supporting MATLAB code."
+  },
+  {
+    "id": "steering",
+    "cat": "automotive",
+    "title": "Active Steering | Observer & Wiener Filter",
+    "eyebrow": "STATE ESTIMATION · VEHICLE CONTROL",
+    "subtitle": "PI feedback versus observer-based yaw-rate regulation",
+    "image": "steering.png",
+    "tags": [
+      "Wiener filter",
+      "Luenberger",
+      "PI",
+      "MATLAB"
+    ],
+    "overview": "Extended the BMW 730 steering model into controller and state-estimator comparisons. Investigated PI pole placement, Luenberger observer design and a Wiener-filter-inspired observer under uncertainty and noise.",
+    "approach": [
+      "Designed a PI controller using characteristic-polynomial constraints.",
+      "Compared deterministic state observation with covariance-weighted Wiener estimation.",
+      "Examined speed-dependent tracking and stability through time- and frequency-domain results."
+    ],
+    "results": [
+      "The report analyses state-estimation quality and trade-offs between controller complexity and measurement noise sensitivity."
+    ],
+    "limitations": "Filter performance depends on assumed process and measurement covariance.",
+    "evidence": "38-page CMS HW5 part 2 report and MATLAB analysis script."
+  },
+  {
+    "id": "bicycle",
+    "cat": "automotive",
+    "title": "Bicycle Roll | Stability & Feedback",
+    "eyebrow": "DYNAMIC SYSTEMS · BALANCE CONTROL",
+    "subtitle": "Speed-dependent roll dynamics and feedback stabilization",
+    "image": "bicycle.png",
+    "tags": [
+      "Bicycle dynamics",
+      "Feedback",
+      "Stability",
+      "MATLAB"
+    ],
+    "overview": "Examined simplified roll dynamics and a Whipple-model bicycle representation, exploring why stability and steering authority change with forward speed.",
+    "approach": [
+      "Derived steering-to-roll transfer functions and investigated poles, zeros and gain.",
+      "Compared proportional stabilization and more capable feedback designs.",
+      "Evaluated speed-dependent stability and limitations near low forward speed."
+    ],
+    "results": [
+      "The report highlights sensitivity of stabilization to model order, speed and sensing assumptions."
+    ],
+    "limitations": "Academic model study; no physical autonomous bicycle test is documented.",
+    "evidence": "26-page CMS HW7 report with MATLAB analysis."
+  },
+  {
+    "id": "evhev",
+    "cat": "automotive",
+    "title": "EV / HEV Traffic Co-Simulation | Rome",
+    "eyebrow": "AUTOMOTIVE SIMULATION · PYTHON",
+    "subtitle": "SUMO traffic + Python bridge + MATLAB/Simulink vehicle models",
+    "image": "evhev.png",
+    "tags": [
+      "SUMO",
+      "Python",
+      "Simulink",
+      "EV / HEV"
+    ],
+    "overview": "Built a Rome urban-traffic simulation workflow using SUMO route data and Python interfaces linked with MATLAB/Simulink EV and HEV models. The project contains multiple traffic intensities, vehicle-model files and saved scenario results.",
+    "approach": [
+      "Prepared light, medium and heavy traffic scenarios with SUMO-compatible routes.",
+      "Connected traffic speed traces and vehicle simulation via Python/MATLAB bridging scripts.",
+      "Compared speed tracking, state-of-charge trends and energy/fuel-equivalent outputs across scenarios."
+    ],
+    "results": [
+      "Archived CSV summaries contain light, medium and heavy scenarios and actual-versus-reference speed records.",
+      "Separate EV and HEV Simulink models and scenario plots are included."
+    ],
+    "limitations": "Saved scenario results have not been independently rerun in the current environment; do not interpret equivalent-fuel quantities as laboratory vehicle measurements.",
+    "evidence": "Project RAR contains Python scripts, MATLAB bridges, .slx models, route files, result CSVs and figures."
+  },
+  {
+    "id": "fusion",
+    "cat": "mechanical",
+    "title": "Fusion 360 | CAD/CAM CNC Workflow",
+    "eyebrow": "DIGITAL MANUFACTURING · CAD/CAM",
+    "subtitle": "Aluminium 6061 milling plan with machining simulation and NC output",
+    "image": "cam.png",
+    "tags": [
+      "Fusion 360",
+      "CAM",
+      "CNC",
+      "Manufacturing"
+    ],
+    "overview": "Prepared a Fusion 360 CAD/CAM course challenge for an aluminium 6061 workpiece, setting up machining coordinates and tooling, then creating and validating a multi-operation 2-D milling workflow.",
+    "approach": [
+      "Defined stock, tool library, work coordinate origin and milling setup.",
+      "Created Face, Adaptive Clearing, Pocket, Contour and drilling toolpaths.",
+      "Simulated material removal and exported an NC program using a generic post."
+    ],
+    "results": [
+      "The course summary confirms simulated stock removal and NC export; the Fusion design archive (.f3d) is available."
+    ],
+    "limitations": "A CAM simulation and generic NC post do not establish physical machining quality or actual machine validation.",
+    "evidence": "Fusion .f3d file plus one-page process report."
+  },
+  {
+    "id": "vision",
+    "cat": "vision",
+    "title": "MATLAB | Image Contrast Enhancement",
+    "eyebrow": "IMAGE PROCESSING · MATLAB",
+    "subtitle": "Early computer vision / image-preprocessing exercise",
+    "image": "vision.png",
+    "tags": [
+      "MATLAB",
+      "Image processing",
+      "Contrast"
+    ],
+    "overview": "The CMS archive also contains MATLAB scripts and data assets related to a contrast-enhancement exercise. This is currently documented only as an early image-processing activity while the user’s separate AI-based moss-detection project awaits its code and evaluation figures.",
+    "approach": [
+      "Review supplied contrast-enhancement MATLAB scripts and supporting data.",
+      "Prepare original input/output comparisons and document the algorithm after validation."
+    ],
+    "results": [
+      "Code and MATLAB data assets are present; there is not yet a verified performance result suitable for the public portfolio."
+    ],
+    "limitations": "Not presented as a trained AI classifier or validated moss-detection model.",
+    "evidence": "MATLAB contrast-enhancement scripts and dataset fragment in the CMS archive."
+  }
+]
